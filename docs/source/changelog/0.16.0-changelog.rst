@@ -128,7 +128,7 @@ Documentation-related changes
 * :pr:`2828`: Removed suggestion issue template, added FAQ answer regarding proposing new features
 
 
-* :pr:`2851`: New example to graph.py documentation 
+* :pr:`2851`: New example to graph.py documentation
    - Added an example to the mobject.graph doc using the partite layout to render an linear neural network
 
 Changes concerning the testing system
@@ -211,5 +211,3 @@ Unclassified changes
 
 
 * :pr:`2855`: polish: Add implicit docker.io/ URL base
-
-
