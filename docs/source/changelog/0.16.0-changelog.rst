@@ -159,6 +159,9 @@ Documentation-related changes
 * :pr:`2740`: Fixed documentation of :meth:`.Cylinder.get_direction`
 
 
+* :pr:`2755`: Fixed docstring of  :meth:`.VMobject.get_end_anchors`
+
+
 * :pr:`2760`: Remove cmake from the macos installation section
 
 
@@ -171,7 +174,7 @@ Documentation-related changes
 * :pr:`2828`: Removed suggestion issue template, added FAQ answer regarding proposing new features
 
 
-* :pr:`2851`: New example to graph.py documentation
+* :pr:`2851`: New example to graph.py documentation 
    - Added an example to the mobject.graph doc using the partite layout to render an linear neural network
 
 * :pr:`2855`: Added implicit ``docker.io/`` URL base in reference to docker images
@@ -198,6 +201,9 @@ Code quality improvements and similar refactors
 * :pr:`2687`: Migrate from os.path to pathlib in SVGMobject and other locations
    This pull request changes a number of instances of OS.path to Pathlib objects and functions. In addition, this PR modifies the SVGMobject constructor to accept both a Pathlib object or a string variable pathname its constructor.
 
+* :pr:`2735`: Bump pyjwt from 2.3.0 to 2.4.0
+
+
 * :pr:`2748`: Bump pillow from 9.1.0 to 9.1.1
 
 
@@ -216,10 +222,3 @@ New releases
 * :pr:`2863`: Prepared new release,  ``v0.16.0``
 
 
-Unclassified changes
---------------------
-
-* :pr:`2735`: Bump pyjwt from 2.3.0 to 2.4.0
-
-
-* :pr:`2755`: Fixed docstring of  :meth:`.VMobject.get_end_anchors`
