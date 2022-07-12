@@ -23,7 +23,7 @@ class ParametricFunction(VMobject, metaclass=ConvertToOpenGL):
     Parameters
     ----------
     function
-        The function to be plotted in the form of ``(lambda x: x**2)``
+        The function to be plotted in the form of ``(lambda t: np.array(t, t**2, 0))``
     t_range
         Determines the length that the function spans. By default ``[0, 1]``
     scaling
@@ -97,7 +97,7 @@ class ParametricFunction(VMobject, metaclass=ConvertToOpenGL):
 
     def __init__(
         self,
-        function: Callable[[float, float], float],
+        function: Callable[[float], list | np.ndarray],
         t_range: Sequence[float] | None = None,
         scaling: _ScaleBase = LinearBase(),
         dt: float = 1e-8,
