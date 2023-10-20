@@ -53,3 +53,20 @@ def test_vmobject_joint_types(scene):
 
     lines.arrange(RIGHT, buff=1)
     scene.add(lines)
+
+
+@frames_comparison
+def test_vmobject_cap_types(scene):
+    angled_line = VMobject(stroke_width=20, color=GREEN).set_points_as_corners(
+        [
+            np.array([-2, 0, 0]),
+            np.array([0, 0, 0]),
+            np.array([-2, 1, 0]),
+        ]
+    )
+    lines = VGroup(*[angled_line.copy() for _ in range(len(LineJointType))])
+    for line, cap_type in zip(lines, LineCapType):
+        line.cap_type = cap_type
+
+    lines.arrange(RIGHT, buff=1)
+    scene.add(lines)

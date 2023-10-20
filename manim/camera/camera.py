@@ -37,6 +37,13 @@ LINE_JOIN_MAP = {
     LineJointType.MITER: cairo.LineJoin.MITER,
 }
 
+LINE_CAP_MAP = {
+    LineCapType.AUTO: None,  # TODO: this could be improved
+    LineCapType.ROUND: cairo.LineCap.ROUND,
+    LineCapType.BUTT: cairo.LineCap.BUTT,
+    LineCapType.SQUARE: cairo.LineCap.SQUARE,
+}
+
 
 class Camera:
     """Base camera class.
@@ -777,6 +784,8 @@ class Camera:
         )
         if vmobject.joint_type != LineJointType.AUTO:
             ctx.set_line_join(LINE_JOIN_MAP[vmobject.joint_type])
+        if vmobject.cap_type != LineCapType.AUTO:
+            ctx.set_line_cap(LINE_CAP_MAP[vmobject.cap_type])
         ctx.stroke_preserve()
         return self
 

@@ -73,6 +73,7 @@ __all__ = [
     "CTRL_VALUE",
     "RendererType",
     "LineJointType",
+    "LineCapType"
 ]
 # Messages
 
@@ -301,3 +302,39 @@ class LineJointType(Enum):
     ROUND = 1
     BEVEL = 2
     MITER = 3
+
+
+class LineCapType(Enum):
+    """Collection of available line joint types.
+
+    See the example below for a visual illustration of the different
+    joint types.
+
+    Examples
+    --------
+
+    .. manim:: LineJointVariants
+        :save_last_frame:
+
+        class LineJointVariants(Scene):
+            def construct(self):
+                mob = VMobject(stroke_width=20, color=GREEN).set_points_as_corners([
+                    np.array([-2, 0, 0]),
+                    np.array([0, 0, 0]),
+                    np.array([-2, 1, 0]),
+                ])
+                lines = VGroup(*[mob.copy() for _ in range(len(LineJointType))])
+                for line, cap_type in zip(lines, LineJointType):
+                    line.cap_type = cap_type
+
+                lines.arrange(RIGHT, buff=1)
+                self.add(lines)
+                for line in lines:
+                    label = Text(line.cap_type.name).next_to(line, DOWN)
+                    self.add(label)
+    """
+
+    AUTO = 0
+    ROUND = 1
+    BUTT = 2
+    SQUARE = 3

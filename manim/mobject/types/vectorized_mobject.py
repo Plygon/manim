@@ -75,6 +75,10 @@ class VMobject(Mobject):
         The line joint type used to connect the curve segments
         of this vectorized mobject. See :class:`.LineJointType`
         for options.
+    cap_type
+        The line cap type used at the tips of curved segments
+        of this vectorized mobject. See :class:`.LineCapType`
+        for options.
     """
 
     sheen_factor = 0.0
@@ -91,6 +95,7 @@ class VMobject(Mobject):
         background_stroke_width=0,
         sheen_factor=0.0,
         joint_type: LineJointType | None = None,
+        cap_type: LineCapType | None = None,
         sheen_direction=UL,
         close_new_points=False,
         pre_function_handle_to_anchor_scale_factor=0.01,
@@ -112,6 +117,9 @@ class VMobject(Mobject):
         if joint_type is None:
             joint_type = LineJointType.AUTO
         self.joint_type = joint_type
+        if cap_type is None:
+            cap_type = LineCapType.AUTO
+        self.cap_type = cap_type
         self.sheen_direction = sheen_direction
         self.close_new_points = close_new_points
         self.pre_function_handle_to_anchor_scale_factor = (

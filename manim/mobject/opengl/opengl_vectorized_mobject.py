@@ -102,6 +102,8 @@ class OpenGLVMobject(OpenGLMobject):
         should_remove_null_curves: bool = False,
         # Could also be "bevel", "miter", "round"
         joint_type: LineJointType | None = None,
+        # Could also be "butt", "square", "round"
+        cap_type: LineCapType | None = None,
         flat_stroke: bool = True,
         render_primitive=moderngl.TRIANGLES,
         triangulation_locked: bool = False,
@@ -130,6 +132,9 @@ class OpenGLVMobject(OpenGLMobject):
         if joint_type is None:
             joint_type = LineJointType.AUTO
         self.joint_type = joint_type
+        if cap_type is None:
+            cap_type = LineCapType.AUTO
+        self.cap_type = cap_type
         self.flat_stroke = flat_stroke
         self.render_primitive = render_primitive
         self.triangulation_locked = triangulation_locked
@@ -1561,6 +1566,7 @@ class OpenGLVMobject(OpenGLMobject):
     def get_stroke_uniforms(self):
         result = dict(super().get_shader_uniforms())
         result["joint_type"] = self.joint_type.value
+        result["cap_type"] = self.cap_type.value
         result["flat_stroke"] = float(self.flat_stroke)
         return result
 
