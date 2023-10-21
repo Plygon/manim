@@ -1186,7 +1186,7 @@ class Scene:
         self.animations = self.compile_animations(*animations, **play_kwargs)
         self.add_mobjects_from_animations(self.animations)
 
-        self.last_t = 0
+        self.last_t = 0 if self.renderer.time == 0 else -1/config.frame_rate
         self.stop_condition = None
         self.moving_mobjects = []
         self.static_mobjects = []
