@@ -116,7 +116,7 @@ class VMobject(Mobject):
         background_stroke_opacity: float = 1.0,
         background_stroke_width: float = 0,
         sheen_factor: float = 0.0,
-        joint_type: LineJointType | None = None,
+        joint_type: LineJointType | None = LineJointType.MITER,
         sheen_direction: Vector3D = UL,
         close_new_points: bool = False,
         pre_function_handle_to_anchor_scale_factor: float = 0.01,
@@ -126,7 +126,7 @@ class VMobject(Mobject):
         # TODO, do we care about accounting for varying zoom levels?
         tolerance_for_point_equality: float = 1e-6,
         n_points_per_cubic_curve: int = 4,
-        cap_style: CapStyleType = CapStyleType.AUTO,
+        cap_style: CapStyleType = CapStyleType.BUTT,
         **kwargs: Any,
     ):
         self.fill_opacity = fill_opacity
